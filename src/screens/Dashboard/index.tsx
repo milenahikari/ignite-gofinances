@@ -23,7 +23,12 @@ export function Dashboard() {
           <S.Icon name="power"/>
         </S.UserWrapper>
       </S.Header>
-      <HighlightCard/>
+      
+      <S.HighlightCards>
+        <HighlightCard/>
+        <HighlightCard/>
+        <HighlightCard/>
+      </S.HighlightCards>
     </S.Container>
   )
 }
