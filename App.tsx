@@ -15,12 +15,12 @@ import {Dashboard} from './src/screens/Dashboard';
 export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
-    Poppins_500Medium, 
+    Poppins_500Medium,
     Poppins_700Bold
-  });
+  })
 
-  if(!fontsLoaded) {
-    return <AppLoading/>
+  if (!fontsLoaded) {
+    return <AppLoading />
   }
 
   return (
