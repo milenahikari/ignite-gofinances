@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { HighlightCard } from '../../components/HighlightCard';
+
 import * as S from './styles';
 
 export function Dashboard() {
@@ -21,6 +23,7 @@ export function Dashboard() {
           <S.Icon name="power"/>
         </S.UserWrapper>
       </S.Header>
+      <HighlightCard/>
     </S.Container>
   )
 }
