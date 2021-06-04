@@ -8,6 +8,7 @@ interface Category {
 }
 
 interface Data {
+  type: 'positive' | 'negative';
   title: string;
   amount: string;
   category : Category;
@@ -23,7 +24,10 @@ export function TransactionCard({data} : TransactionCardProps) {
     <S.Container>
       <S.Title>{data.title}</S.Title>
 
-      <S.Amount>{data.amount}</S.Amount>
+      <S.Amount type={data.type}>
+        {data.type === 'negative' && '- '}
+        {data.amount}
+      </S.Amount>
 
       <S.Footer>
         <S.Category>
