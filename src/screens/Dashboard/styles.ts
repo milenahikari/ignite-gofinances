@@ -1,24 +1,28 @@
-import styled from 'styled-components/native';
-import {FlatList} from 'react-native';
-import {Feather} from '@expo/vector-icons';
-import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
+import styled, { css } from 'styled-components/native';
+import { FlatList } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 
-import {DataListProps} from '.';
+import { DataListProps } from '.';
 
 export const Container = styled.View`
-  flex: 1;
-  background: ${({theme}) => theme.colors.background};
+  ${({ theme }) => css`
+    flex: 1;
+    background: ${theme.colors.background};
+  `}
 `;
 
 export const Header = styled.View`
-  width: 100%;
-  height: ${RFPercentage(42)}px;
+  ${({ theme }) => css`
+    width: 100%;
+    height: ${RFPercentage(42)}px;
 
-  background: ${({theme}) => theme.colors.primary};
+    background: ${theme.colors.primary};
 
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+  `}
 `;
 
 export const UserWrapper = styled.View`
@@ -46,20 +50,26 @@ export const User = styled.View`
 `;
 
 export const UserGreeting = styled.Text`
-  color: ${({theme}) => theme.colors.shape};
-  font-family: ${({theme}) => theme.fonts.regular};
-  font-size: ${RFValue(18)}px;
+  ${({ theme }) => css`
+    color: ${theme.colors.shape};
+    font-family: ${theme.fonts.regular};
+    font-size: ${RFValue(18)}px;
+  `}
 `;
 
 export const UserName = styled.Text`
-  color: ${({theme}) => theme.colors.shape};
-  font-family: ${({theme}) => theme.fonts.bold};
-  font-size: ${RFValue(18)}px;
+  ${({ theme }) => css`
+    color: ${theme.colors.shape};
+    font-family: ${theme.fonts.bold};
+    font-size: ${RFValue(18)}px;
+  `}
 `;
 
 export const Icon = styled(Feather)`
-  color:${({theme}) => theme.colors.secondary};
-  font-size: ${RFValue(24)}px;
+  ${({ theme }) => css`
+    color:${theme.colors.secondary};
+    font-size: ${RFValue(24)}px;
+  `}
 `;
 
 export const HighlightCards = styled.ScrollView.attrs({
@@ -79,15 +89,15 @@ export const Transactions = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: ${RFValue(18)}px;
-  font-family: ${({theme}) => theme.fonts.regular};
-  margin-bottom: 16px;
+  ${({ theme }) => css`
+    font-size: ${RFValue(18)}px;
+    font-family: ${theme.fonts.regular};
+    margin-bottom: 16px;
+  `}
 `;
 
 export const TransactionList = styled(
     FlatList as new () => FlatList<DataListProps>
   ).attrs({
   showsVerticalScrollIndicator: false
-})`
-
-`;
+})``;

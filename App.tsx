@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import { StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
@@ -11,8 +11,9 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/theme';
-// import {Dashboard} from './src/screens/Dashboard';
-import {CategorySelect} from './src/screens/CategorySelect';
+
+import { Dashboard } from './src/screens/Dashboard';
+import { CategorySelect } from './src/screens/CategorySelect';
 
 export default function App() {
   const [fontsLoaded] = useFonts({

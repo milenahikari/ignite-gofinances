@@ -1,27 +1,33 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
-  flex: 1;
-  background-color: ${({theme}) => theme.colors.background};
+  ${({ theme }) => css`
+    flex: 1;
+    background-color: ${theme.colors.background};
+  `}
 `;
 
 export const Header = styled.View`
-  width: 100%;
-  height: ${RFValue(113)}px;
+  ${({ theme }) => css`
+    width: 100%;
+    height: ${RFValue(113)}px;
 
-  background-color: ${({theme}) => theme.colors.primary};
+    background-color: ${theme.colors.primary};
 
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 19px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 19px;
+  `}
 `;
 
 export const Title = styled.Text`
-  font-family: ${({theme}) => theme.fonts.regular};
-  color: ${({theme}) => theme.colors.shape};
-  font-size: ${RFValue(18)}px;
+  ${({ theme }) => css`
+    font-family: ${theme.fonts.regular};
+    color: ${theme.colors.shape};
+    font-size: ${RFValue(18)}px;
+  `}
 `;
 
 export const Category = styled.View`
@@ -38,14 +44,18 @@ export const Icon = styled(Feather)`
 `;
 
 export const Name = styled.Text`
-  font-family: ${({ theme}) => theme.fonts.regular};
-  font-size: ${RFValue(14)}px;
+  ${({ theme }) => css`
+    font-family: ${({ theme}) => theme.fonts.regular};
+    font-size: ${RFValue(14)}px;
+  `}
 `;
 
 export const Separator = styled.View`
-  width: 100%;
-  height: 1px;
-  background-color: ${({theme}) => theme.colors.text};
+  ${({ theme }) => css`
+    width: 100%;
+    height: 1px;
+    background-color: ${theme.colors.text};
+  `}
 `;
 
 export const Footer = styled.View`
