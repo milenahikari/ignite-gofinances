@@ -20,7 +20,6 @@ export const Category = styled.Text`
   ${({ theme }) => css`
     font-family: ${theme.fonts.regular};
     font-size: ${RFValue(14)}px;
-    color: ${theme.colors.text};
   `}
 `;
 
