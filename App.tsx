@@ -13,6 +13,7 @@ import {
 import theme from './src/global/styles/theme';
 
 import { Dashboard } from './src/screens/Dashboard';
+import { Register } from './src/screens/Register';
 import { CategorySelect } from './src/screens/CategorySelect';
 
 export default function App() {
@@ -32,7 +33,7 @@ export default function App() {
         barStyle="light-content"
         backgroundColor="#5636d3"
       />
-      <CategorySelect/>
+      <Register/>
     </ThemeProvider>
   );
 }
