@@ -64,12 +64,15 @@ export function Register() {
             name="name"
             control={control}
             placeholder="Nome"
+            autoCapitalize="sentences"
+            autoCorrect={false}
           />
 
           <InputForm
             name="amount"
             control={control}
             placeholder="Preço"
+            keyboardType="numeric"
           />
 
           <S.TransactionsType>
