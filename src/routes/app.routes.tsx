@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plataform } from 'react-native';
+import { Platform } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTheme } from 'styled-components';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -19,7 +19,7 @@ export function AppRoutes() {
         inactiveTintColor: theme.colors.text,
         labelPosition: "beside-icon",
         style: {
-          paddingVertical: Plataform.OS === 'ios' ? 20 : 0,
+          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
           height: 88
         }
       }}
