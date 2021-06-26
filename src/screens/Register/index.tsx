@@ -13,7 +13,6 @@ import { InputForm } from '../../components/Form/InputForm';
 import { Button } from '../../components/Form/Button';
 import { TransactionTypeButton } from '../../components/Form/TransactionTypeButton';
 import { CategorySelectButton } from '../../components/Form/CategorySelectButton';
-
 import { CategorySelect } from '../CategorySelect';
 
 import * as S from './styles';
@@ -31,6 +30,7 @@ const schema = Yup.object().shape({
     .number()
     .typeError('Informe um valor númerico')
     .positive('O valor não pode ser negativo')
+    .required('Valor é obrigatório')
 });
 
 export function Register() {
