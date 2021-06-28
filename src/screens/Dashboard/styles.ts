@@ -13,6 +13,12 @@ export const Container = styled.View`
   `}
 `;
 
+export const LoadContainer = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Header = styled.View`
   ${({ theme }) => css`
     width: 100%;
