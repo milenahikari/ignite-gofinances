@@ -29,17 +29,20 @@ interface CategoryData {
   total: number;
   totalFormatted: string;
   color: string;
-  percent: string;
+  percentFormatted: string
+  percent: number
 }
 
 export function Resume() {
   const theme = useTheme();
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
   const [selectedDate, setSelectedDate] = useState(new  Date());
 
   async function loadData() {
+    setIsLoading(true);
+
     const dataKey = '@gofinances:transactions';
 
     const response = await AsyncStorage.getItem(dataKey);
@@ -74,7 +77,8 @@ export function Resume() {
           currency: 'BRL'
         });
 
-        const percent = `${(categorySum / expensivesTotal * 100).toFixed(0)}%`;
+        const percent = (categorySum / expensivesTotal) * 100;
+        const percentFormatted = `${percent.toFixed(0)}%`;
 
         totalByCategory.push({
           key: category.key,
@@ -82,7 +86,8 @@ export function Resume() {
           color: category.color,
           total: categorySum,
           totalFormatted,
-          percent
+          percent,
+          percentFormatted
         });
       }
     });
@@ -92,8 +97,6 @@ export function Resume() {
   }
 
   function handleDateChange(action: 'next' | 'prev') {
-    setIsLoading(true);
-
     if(action === 'next') {
       setSelectedDate(addMonths(selectedDate, 1));
     } else {
@@ -101,13 +104,9 @@ export function Resume() {
     }
   }
 
-  useEffect(() => {
-    loadData(); 
-  }, [selectedDate]);
-
   useFocusEffect(useCallback(() => {
     loadData();
-  }, []));
+  }, [selectedDate]));
 
   return (
     <S.Container>
@@ -160,7 +159,7 @@ export function Resume() {
                 }
               }}
               labelRadius={50}
-              x="percent"
+              x="percentFormatted"
               y="total"
           />
           </S.ChartContainer>
