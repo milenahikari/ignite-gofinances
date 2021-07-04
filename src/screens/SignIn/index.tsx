@@ -6,13 +6,14 @@ import GoogleSvg from '../../assets/google.svg';
 import LogoSvg from '../../assets/logo.svg';
 
 import { SignInSocialButton } from '../../components/SignInSocialButton';
-import { AuthContext } from '../../AuthContext';
+import { useAuth } from '../../hooks/auth';
 
 import * as S from './styles';
 
 export function SignIn() {
-  const data = useContext(AuthContext);
+  const { user } = useAuth();
 
+  console.log(user.name);
   return (
     <S.Container>
       <S.Header>
