@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import * as Google from 'expo-google-app-auth';
 import * as AppleAuthentication from 'expo-apple-authentication';
@@ -25,7 +25,26 @@ interface IAuthContextData {
 const AuthContext = createContext({} as IAuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
+  const userStorageKey = '@gofinances:user';
+
   const [user, setUser] = useState<User>({} as User);
+  const [userStorageLoading, setUserStorageLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadUserStorage() {
+      const userStorage = await AsyncStorage.getItem(userStorageKey);
+
+      console.log(userStorage);
+      if(userStorage) {
+        const userLogged = JSON.parse(userStorage) as User;
+        setUser(userLogged);
+      }
+
+      setUserStorageLoading(false);
+    }
+
+    loadUserStorage();
+  }, []);
 
   async function signInWithGoogle() {
     try {
@@ -47,7 +66,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         };
 
         setUser(userLogged);
-        await AsyncStorage.setItem('@gofinances:user', JSON.stringify(userLogged));
+        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
       
     } catch (error) {
@@ -73,13 +92,14 @@ function AuthProvider({ children }: AuthProviderProps) {
         }
 
         setUser(userLogged);
-        await AsyncStorage.setItem('@gofinances:user', JSON.stringify(userLogged));
+        await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }
 
     } catch (error) {
       throw new Error(error);
     }
   }
+
   return (
     <AuthContext.Provider value={{ 
       user,
