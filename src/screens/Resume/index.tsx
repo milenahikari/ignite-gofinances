@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
 import { VictoryPie } from 'victory-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { addMonths, subMonths, format } from 'date-fns';
@@ -8,7 +9,7 @@ import { ptBR } from 'date-fns/locale';
 import { useFocusEffect } from '@react-navigation/native';
 
 import { useTheme } from 'styled-components';
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs'
+import { useAuth } from '../../hooks/auth';
 
 import { HistoryCard } from '../../components/HistoryCard';
 import { categories } from '../../utils/categories';
@@ -35,6 +36,7 @@ interface CategoryData {
 
 export function Resume() {
   const theme = useTheme();
+  const { user } = useAuth();
 
   const [isLoading, setIsLoading] = useState(false);
   const [totalByCategories, setTotalByCategories] = useState<CategoryData[]>([]);
@@ -43,7 +45,7 @@ export function Resume() {
   async function loadData() {
     setIsLoading(true);
 
-    const dataKey = '@gofinances:transactions';
+    const dataKey = `@gofinances:transactions_user:${user.id}`;;
 
     const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];
