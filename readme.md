@@ -78,7 +78,6 @@ Segue alguns prints do projeto
   <img style="margin: 5px" alt="Login" src="https://imgur.com/IU9ySI2.png" width="200">
   <img style="margin: 5px" alt="Dashboard" src="https://imgur.com/HrJ5qIj.png" width="200">
   <img style="margin: 5px" alt="Register new transaction" src="https://imgur.com/9bSwZ0Z.png" width="200">
-  <img style="margin: 5px" alt="List categories" src="https://imgur.com/pBYSdpw.png" width="200">
   <img style="margin: 5px" alt="Resume negative transactions" src="https://imgur.com/6Z7TGZf.png" width="200">
 </div>
 
