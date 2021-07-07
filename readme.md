@@ -17,7 +17,7 @@ Ignite - Rocketseat
 
 Projeto GoFinances desenvolvido na trilha de React Native 2021 🚀
 
-A aplicação consiste em administrar as finanças do usuário, permitindo cadastrar os valores de entradas e saídas, apresentando o montante da fatura e um resumo visual por meio de um gráfico, separando as categorias por despesa.
+A aplicação consiste em administrar as finanças do usuário, permitindo cadastrar os valores de entradas e saídas, apresentando o montante dos valores e um resumo visual por meio de um gráfico, separando as despesas por categorias.
 
 Aulas assistidas:
 
